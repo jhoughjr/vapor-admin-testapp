@@ -7,9 +7,7 @@ func routes(_ app: Application) throws {
         try await req.view.render("index", ["title": "Hello Vapor!"])
     }
 
-    app.get("admin") { req async -> String in
-        VaporAdmin.banner()
-    }
-
+  
+    try VaporAdmin.adminRoutes(for: app)
     try app.register(collection: TodoController())
 }

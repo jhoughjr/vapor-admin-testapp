@@ -4,7 +4,7 @@ import PackageDescription
 let package = Package(
     name: "test",
     platforms: [
-       .macOS(.v13)
+        .macOS(.v15)
     ],
     dependencies: [
         .package(url: "https://github.com/theleftbit/vapor-admin", branch: "main"),
