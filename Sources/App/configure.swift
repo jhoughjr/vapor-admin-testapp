@@ -3,6 +3,7 @@ import Fluent
 import FluentPostgresDriver
 import Leaf
 import Vapor
+import VaporAdmin
 
 // configures your application
 public func configure(_ app: Application) async throws {
@@ -19,11 +20,10 @@ public func configure(_ app: Application) async throws {
     ), as: .psql)
 
     app.migrations.add(CreateTodo())
-
+    
     app.views.use(.leaf)
 
-    
-
+    try VaporAdmin.confgiureDB(for: app)
     // register routes
     try routes(app)
 }
